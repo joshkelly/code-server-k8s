@@ -1,6 +1,6 @@
 ## Deploy code-server on a Kubernetes cluster.
 
-This tutorial will walk you through the steps to deploy code-server using a secret password with persistent storage. I am using a Google Kubernetes Engine (GKE) cluster for the development and testing of this tutorial.
+This tutorial will walk you through the steps to deploy [code-server](https://github.com/cdr/code-server) using a secret password with persistent storage. I am using a Google Kubernetes Engine (GKE) cluster for the development and testing of this tutorial.
 
 
 ## Create a secret for the code-server password
@@ -59,3 +59,5 @@ kubectl delete -f code-server-deployment.yaml
 kubectl delete -f code-server-pvc.yaml
 kubectl delete secret secret-code-server
 ```
+
+![Screenshot](./doc/assets/screenshot.png)
