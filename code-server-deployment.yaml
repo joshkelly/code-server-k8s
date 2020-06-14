@@ -6,7 +6,7 @@ spec:
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 8080
+    targetPort: 8443
   selector:
     app: code-server
   type: LoadBalancer
@@ -27,8 +27,8 @@ spec:
         app: code-server
     spec:
       containers:
-      - image: linuxserver/code-server:3.4.0-ls46
+      - image: linuxserver/code-server:v3.4.0-ls46
         name: code-server
         ports:
-        - containerPort: 8080
+        - containerPort: 8443
           name: code-server
