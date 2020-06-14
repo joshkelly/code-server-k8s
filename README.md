@@ -3,7 +3,7 @@ This tutorial will walk you through the steps to deploy code-server using a secr
 
 
 ## Create a secret for the code-server password
-Replace <password> in the following command with your desired password and then run.
+Replace `<password>` in the following command with your desired password before running.
 
 ```bash
 kubectl create secret generic secret-code-server --from-literal=PASSWORD='<password>'
