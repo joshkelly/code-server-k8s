@@ -4,9 +4,9 @@ metadata:
   name: code-server
 spec:
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 8080
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
   selector:
     app: code-server
   type: LoadBalancer
@@ -27,7 +27,7 @@ spec:
         app: code-server
     spec:
       containers:
-        - image: linuxserver/code-server:3.4.0-ls46
+      - image: linuxserver/code-server:3.4.0-ls46
         name: code-server
         ports:
         - containerPort: 8080
