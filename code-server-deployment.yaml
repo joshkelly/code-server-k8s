@@ -29,6 +29,16 @@ spec:
       containers:
       - image: linuxserver/code-server:v3.4.0-ls46
         name: code-server
+        envFrom:
+        - secretRef:
+            name: secret-code-server
         ports:
         - containerPort: 8443
           name: code-server
+        volumeMounts:
+        - name: pv-code-server
+          mountPath: /config
+      volumes:
+      - name: pv-code-server
+        persistentVolumeClaim:
+          claimName: pvc-code-server
