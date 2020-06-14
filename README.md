@@ -1,8 +1,10 @@
 ## Deploy code-server on a Kubernetes cluster.
+
 This tutorial will walk you through the steps to deploy code-server using a secret password with persistent storage. I am using a Google Kubernetes Engine (GKE) cluster for the development and testing of this tutorial.
 
 
 ## Create a secret for the code-server password
+
 Replace `<password>` in the following command with your desired password before running.
 
 ```bash
@@ -11,10 +13,12 @@ kubectl create secret generic secret-code-server --from-literal=PASSWORD='<passw
 
 
 ## Create a PersistentVolumeClaim
+
 Using persitent volumes will allow the code-server config and the code you develop to persist pod failures.
+
 The pvc manifest file will:
 - Assume that a default storage class is defined.
-- Set persistent volumes to 1Gi
+- Set persistent volumes to 1Gi.
 
 ```bash
 kubectl apply -f code-server-pvc.yaml
@@ -22,11 +26,12 @@ kubectl apply -f code-server-pvc.yaml
 
 
 ## Deploy code-server on your kubernetes cluster
+
 The deployment manifest file will:
 - Create a service with a loadbalancer ip and expose code-server on port 80 using HTTP.
 - Deploy code-server pinned to version 'v3.4.0-ls46'
 - Set a password as defined by the kubernetes secret named "secret-code-server" using the PASSWORD value.
-- Persistent volume is mounted on `/config`.
+- Mount the persistent volume to `/config`.
 
 ```bash
 kubectl apply -f code-server-deployment.yaml
@@ -34,6 +39,7 @@ kubectl apply -f code-server-deployment.yaml
 
 
 ## Access code-server using your browser
+
 You can now access code-server using the service ip.
 
 To get the IP address to access code-server.
@@ -45,6 +51,7 @@ Note: It may take a minute for the ip address to be assigned so be patient.
 
 
 ## Clean-up
+
 If you would like to clean-up the resources created during this tutorial.
 
 ```bash
