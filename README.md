@@ -49,6 +49,7 @@ kubectl get svc code-server -o=jsonpath={.status.loadBalancer.ingress[].ip}
 ```
 Note: It may take a minute for the ip address to be assigned so be patient.
 
+![Screenshot](./doc/assets/screenshot.png)
 
 ## Clean-up
 
@@ -59,5 +60,3 @@ kubectl delete -f code-server-deployment.yaml
 kubectl delete -f code-server-pvc.yaml
 kubectl delete secret secret-code-server
 ```
-
-![Screenshot](./doc/assets/screenshot.png)
